@@ -15,7 +15,7 @@ export class AuthService {
 
 hasRole(requiredRole: string): boolean {
   const userRole = this.currentUserRoleSubject.value;
-  // You may need to implement a more sophisticated role comparison logic based on your needs
+
   return userRole === requiredRole;
 }
 }
