@@ -1,1 +1,38 @@
+
+
+
 <p>register works!</p>
+
+<div class="container ">
+  <h2>Registration</h2>
+  <div class="registration-container">
+  <!--Reactive form module  form group directive is binding to 'registrationForm'-->
+   <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+    <div class="form-row">
+    <div class="col-md-6 mb-3">
+      <label for="Firstname" class="rainbow-text">Firstname</label> 
+      <input type="text" class="form-control rainbow-input" id="Firstname" formControlName="Firstname" required>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="Lastname" class="rainbow-text">Lastname</label> 
+      <input type="text" class="form-control rainbow-input" id="Lastname" formControlName="Lastname" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="username" class="text-info rainbow-text">Username:</label> 
+      <input type="text" class="form-control rainbow-input" id="username" formControlName="username" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="Password rainbow-text">Password</label> 
+      <input type="text" class="form-control rainbow-input" id="Password" formControlName="Password" required>
+    </div>
+    <div class="col-md-6 mb-3">
+      <label for="Confirm Password rainbow-text"> Confirm Password</label> 
+      <input type="text" class="form-control rainbow-input" id="username" formControlName="username" required>
+    </div>
+     <button type="submit" class="btn btn-primary mt-3 rainbow-btn"> Register</button>
+    </div>
+   </form>
+  </div>
+
+</div>

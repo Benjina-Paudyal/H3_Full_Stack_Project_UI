@@ -1,0 +1,61 @@
+<p>movie-zone works!</p>
+
+<div class="container">
+    <table>
+      <thead>
+        <h1>Movies <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Movie</button></h1>
+        <th>Title</th>
+         <th>DirectorId</th>
+      
+      </thead>
+      <tbody>
+        <tr *ngFor="let movie of movies">
+          <td>{{ movie.movieId }}</td>
+          <td>{{ movie.title }}</td>
+          <td>{{ movie.directorId }}</td>
+          <td>
+            <button class="btn btn-info" (click)="selectMovieforEdit(movie.movieId)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteMovie(movie.movieId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <!-- <form *ngIf="showAddForm" [formGroup]="addMovieForm" (ngSubmit)="createMovie()">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" required>
+     
+      <button type="submit" class="btn btn-primary">Add Movie</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit">Cancel</button>
+    </form>
+  
+    <form *ngIf="selectedMovieId && !showAddForm" [formGroup]="editMovieForm" (ngSubmit)="updateMovie()">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" required>
+    
+      <button type="submit" class="btn btn-primary">Update Movie</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit">Cancel</button>
+    </form> -->
+
+    <form *ngIf="showAddForm" [formGroup]="addMovieForm" (ngSubmit)="createMovie()">
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" required>
+      <label for="directorId">Director ID</label>
+      <input type="text" id="directorId" formControlName="directorId" required>
+      <button type="submit" class="btn btn-primary">Add Movie</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+    
+   
+
+<form *ngIf="selectedMovieId && !showAddForm" [formGroup]="editMovieForm" (ngSubmit)="updateMovie()">
+  <label for="title">Title</label>
+  <input type="text" id="title" formControlName="title" required>
+  <label for="directorId">Director ID</label>
+  <input type="text" id="directorId" formControlName="directorId" required>
+  <button type="submit" class="btn btn-primary">Update Movie</button>
+  <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+</form>
+
+  </div>
+  

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { HomeServiceService } from '../services/home-service.service';
+import { HomeService } from '../../services/home.service';
 
 @Component({
   selector: 'app-home',
@@ -8,5 +8,10 @@ import { HomeServiceService } from '../services/home-service.service';
 })
 export class HomeComponent {
 
+  showImages:boolean=false;
+
+  toggleImages(){
+    this.showImages=!this.showImages
   
+}
 }

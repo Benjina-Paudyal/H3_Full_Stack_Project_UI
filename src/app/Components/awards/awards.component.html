@@ -1,0 +1,41 @@
+<p>awards works!</p>
+<div class="container">
+    <h1>Awards <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Award</button></h1>
+    <table>
+        <thead>
+           
+            <th>Id</th>
+             <th>Name</th>
+             <th>MovieId</th>
+             <th>Actions</th>
+        </thead>
+        <tbody>
+            <tr *ngFor="let award of awards">
+                <td>{{award.awardId}}</td>
+                 <td>{{award.name}}</td>
+                 <td>{{award.MovieId}}</td>
+                 <td>
+                    <button class="btn btn-warning" (click)="selectedAwardforEdit(award.awardId)">Edit </button>
+                    <button class="btn btn-danger" (click)="deleteAward(award.awardId)">Delete</button>
+                   
+                    
+                  </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <form *ngIf="ShowAddForm" [formGroup]="addawardForm" (ngSubmit)="createAward()">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" required>
+        <label for="MovieId">MovieId</label>
+        <input type="text" id="MovieId" formControlName="MovieId" required>
+        <button type="submit " class="btn btn-primary">Add Award</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit">Cancel</button>
+    </form>
+    <form *ngIf="selectedAwardId && !ShowAddForm" [formGroup]="editAwardForm" (ngSubmit)="updateAward()">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" required>
+        <button type="submit " class="btn btn-primary">Update Award</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit">Cancel</button>
+    </form>
+ </div>

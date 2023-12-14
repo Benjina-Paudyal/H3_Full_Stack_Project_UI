@@ -1,0 +1,32 @@
+
+
+.container {
+    text-align: center; /* Center-align the content within the container */
+    margin-top: 50px;
+  }
+table {
+    width: 50%;
+    margin: auto;
+    border-collapse: collapse;
+    background-color: rgb(9, 53, 135); /* set background color to black */
+    color: white; /* set text color to white */
+    text-align: center;
+    
+    
+  }
+  
+  th, td {
+    padding: 10px;
+    border: 1px solid white; /* set border color to white */
+    text-align: center;
+  }
+  
+  thead th {
+    background-color: darkgray; /* set header background color to dark gray */
+  }
+  
+  button {
+    margin: 5px; /* add a small margin around the buttons */
+    font-size: 14px; /* set font size to a larger value */
+  }
+  

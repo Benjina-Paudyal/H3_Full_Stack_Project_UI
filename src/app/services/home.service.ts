@@ -7,7 +7,7 @@ import { Observable } from 'rxjs'; // used for handling asynchronous operations,
 @Injectable({ //tells angular that this service can be injected into other components or services
   providedIn: 'root'
 })
-export class HomeServiceService {
+export class HomeService {
   
   constructor() { }
 

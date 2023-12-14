@@ -1,1 +1,16 @@
 <p> home works!</p>
+
+
+<div class="container">
+  <h1 class="text">Welcome to Movie Showcase!</h1>
+  <p>Discover the latest and greatest movies</p>
+
+  <button class="btn btn-primary" (click)="toggleImages()">Show Movie</button>
+  <div *ngIf="showImages" class="image-container">
+  <img src="../assets/Movie_Images/Avatar.jpg">
+  <img src="../assets/Movie_Images/Hacker.jpg">
+  <img src="../assets/Movie_Images/Harrypotter.jpg">
+   
+
+  </div>
+</div>

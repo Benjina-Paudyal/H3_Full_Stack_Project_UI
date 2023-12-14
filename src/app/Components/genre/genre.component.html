@@ -1,0 +1,39 @@
+<p>genre works!</p>
+
+
+<div class="container">
+    <h1>Genres <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Genre</button></h1>
+      <table>
+        <thead>
+          
+          <th>Id</th>
+          <th>Name</th>
+          <th>Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let genre of genre">
+            <td>{{ genre.genreid }}</td>
+            <td>{{ genre.name }}</td>
+            <td>
+              <button class="btn btn-info" (click)="selectGenreforEdit(genre.genreid)">Edit</button>
+              <button class="btn btn-danger" (click)="deleteGenre(genre.genreid)">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    
+      <form *ngIf="showAddForm" [formGroup]="addGenreForm" (ngSubmit)="createGenre()">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" required>
+        <button type="submit" class="btn btn-primary">Add Genre</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+      </form>
+    
+      <form *ngIf="selectedGenreId !== null && !showAddForm" [formGroup]="editGenreForm" (ngSubmit)="updateGenre()">
+        <label for="name">Name</label>
+        <input type="text" id="name" formControlName="name" required>
+        <button type="submit" class="btn btn-primary">Update Genre</button>
+        <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+      </form>
+    </div>
+    

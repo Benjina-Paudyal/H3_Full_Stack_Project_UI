@@ -1,0 +1,38 @@
+<p>directors works!</p>
+
+<p>directors works!</p>
+
+<div class="container">
+    <table>
+      <thead>
+        <h1>Directors <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Director</button></h1>
+        <th>Id</th>
+        <th>Name</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let director of directors">
+          <td>{{ director.directorId }}</td>
+          <td>{{ director.name }}</td>
+          <td>
+            <button class="btn btn-info" (click)="selectDirectorforEdit(director.directorId)">Edit</button>
+            <button class="btn btn-danger" (click)="deleteDirector(director.directorId)">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <form *ngIf="showAddForm" [formGroup]="addDirectorForm" (ngSubmit)="createDirector()">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" required>
+      <button type="submit" class="btn btn-primary">Add Director</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+  
+    <form *ngIf="selectedDirectorId !== null && !showAddForm" [formGroup]="editDirectorForm" (ngSubmit)="updateDirector()">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" required>
+      <button type="submit" class="btn btn-primary">Update Director</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+  

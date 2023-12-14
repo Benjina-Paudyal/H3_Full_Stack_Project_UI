@@ -1,0 +1,44 @@
+<p>actors works!</p>
+
+<!-- data binding: establishing a connection between the data in the component and the HTML elements in the view, ensuring that changes in one are reflected in the other -->
+<div class="container">
+  <h1>Actors <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Actor</button></h1>
+<table>
+   
+    <thead>
+       
+        <th>Id</th>
+         <th>Name</th>
+         <th>Actions</th>
+    </thead>
+    <tbody>
+        
+        <tr *ngFor="let actor of actors">
+          <td>{{actor.actorId}}</td>
+          <td>{{actor.name}}</td>
+          <td>
+            <button class="btn btn-warning" (click)="selectActorforEdit(actor.actorId)">Edit </button>
+            <button class="btn btn-danger" (click)="deleteActor(actor.actorId)">Delete</button>
+           
+            
+          </td>
+        </tr>
+    </tbody>
+</table>
+
+  <form *ngIf="showAddForm" [formGroup]="addActorForm" (ngSubmit)="createActor()">
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name" required>
+    <button type="submit" class="btn btn-primary">Add Actor</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+  </form>
+  <form *ngIf="selectedActorId && !showAddForm" [formGroup]="editActorForm" (ngSubmit)="updateActor()">
+    <label for="name">Name</label>
+    <input type="text" id="name" formControlName="name" required>
+    <button type="submit" class="btn btn-primary">Update Actor</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+  </form>
+</div>
+
+
+    

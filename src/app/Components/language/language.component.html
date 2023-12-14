@@ -1,0 +1,37 @@
+<p>language works!</p>
+
+<div class="container">
+    <table>
+      <thead>
+        <h1>Languages <button class="btn btn-primary" (click)="toggleAddFormVisibility()">Add Language</button></h1>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Actions</th>
+     
+      </thead>
+      <tbody>
+        <tr *ngFor="let language of languages">
+          <td>{{language.languageId}}</td>
+          <td>{{language.name}}</td>
+        
+        </tr>
+      </tbody>
+    </table>
+  
+    <form *ngIf="showAddForm" [formGroup]="addLanguageForm" (ngSubmit)="createLanguage()">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" required>
+      
+      <button type="submit" class="btn btn-primary">Add Language</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+    
+    <form *ngIf="selectedLanguageId && !showAddForm" [formGroup]="editLanguageForm" (ngSubmit)="updateLanguage()">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" required>
+      
+      <button type="submit" class="btn btn-primary">Update Language</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+    </form>
+  </div>
+  
